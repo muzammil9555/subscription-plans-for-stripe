@@ -240,9 +240,9 @@ abstract class Factory
      */
     public function createMany(int|iterable|null $records = null)
     {
-        if (is_null($records)) {
-            $records = $this->count ?? 1;
-        }
+        $records ??= ($this->count ?? 1);
+
+        $this->count = null;
 
         if (is_numeric($records)) {
             $records = array_fill(0, $records, []);
@@ -694,7 +694,7 @@ abstract class Factory
     {
         $instances->each(function ($model) {
             $this->afterMaking->each(function ($callback) use ($model) {
-                $callback($model);
+                Closure::fromCallable($callback)->call($this, $model);
             });
         });
     }
@@ -710,7 +710,7 @@ abstract class Factory
     {
         $instances->each(function ($model) use ($parent) {
             $this->afterCreating->each(function ($callback) use ($model, $parent) {
-                $callback($model, $parent);
+                Closure::fromCallable($callback)->call($this, $model, $parent);
             });
         });
     }
