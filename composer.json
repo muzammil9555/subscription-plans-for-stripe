@@ -1,0 +1,29 @@
+{
+    "name": "muzammil9555/subscription-plans-for-stripe",
+    "description": "Laravel package for managing dynamic subscription plans with Stripe integration.",
+    "type": "library",
+    "require": {
+        "laravel/framework": "11"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Muzammil9555\\SubscriptionPlansForStripe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "muzammil9555",
+            "email": "159408522+muzammil9555@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Muzammil9555\\SubscriptionPlansForStripe\\ServiceProvider"
+            ],
+            "aliases": {}
+        }
+    }
+}
