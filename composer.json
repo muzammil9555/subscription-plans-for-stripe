@@ -3,7 +3,7 @@
     "description": "Laravel package for managing dynamic subscription plans with Stripe integration.",
     "type": "library",
     "require": {
-        "laravel/framework": "11"
+        "laravel/framework": "^11"
     },
     "license": "MIT",
     "autoload": {
